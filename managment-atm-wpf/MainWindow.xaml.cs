@@ -23,6 +23,22 @@ namespace managment_atm_wpf
         public MainWindow()
         {
             InitializeComponent();
+
+            ButtonYes.Click += ClickYes;
+            ButtonNo.Click += ClickNo;
+        }
+
+        private void ClickYes(object sender, EventArgs e)
+        {
+            Hide();
+            MessageBox.Show("Мы и не сомневались в этом :)");
+            Close();
+        }
+
+        private void ClickNo(object sender, EventArgs e)
+        {
+            Left = new Random().Next(0, Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenWidth)  - Convert.ToInt32(Width));
+            Top = new Random().Next(0, Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenHeight) - Convert.ToInt32(Height));
         }
     }
 }
